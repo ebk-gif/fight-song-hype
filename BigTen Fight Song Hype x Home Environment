@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>What Actually Makes a College Fight Song "Hype"?</title>
+  <style>
+    :root {
+      --text: #111;
+      --muted: #666;
+      --rule: #e6e6e6;
+      --bg: #fff;
+      --maxw: 980px;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height: 1.5;
+    }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 36px 18px 64px; }
+    h1 { font-size: clamp(28px, 4vw, 44px); line-height: 1.1; margin: 0 0 10px; letter-spacing: -0.02em; }
+    .deck { font-size: clamp(16px, 2.2vw, 20px); color: var(--muted); margin: 0 0 22px; }
+    hr { border: 0; border-top: 1px solid var(--rule); margin: 28px 0; }
+    h2 { font-size: 22px; margin: 0 0 10px; }
+    p { margin: 10px 0; }
+    .note { color: var(--muted); font-size: 14px; margin-top: 10px; }
+    .chart { margin: 18px 0 6px; }
+    iframe { width: 1px; min-width: 100% !important; border: 0; }
+    .callout {
+      border-left: 4px solid var(--rule);
+      padding: 10px 14px;
+      margin: 14px 0;
+      background: #fafafa;
+    }
+    details { margin-top: 14px; }
+    summary { cursor: pointer; font-weight: 600; }
+    ul { margin: 8px 0 0 18px; }
+    .footer { margin-top: 34px; color: var(--muted); font-size: 13px; }
+    .footer a { color: inherit; }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <h1>What Actually Makes a College Fight Song “Hype”?</h1>
+    <p class="deck">College fight songs mapped by musical speed and lyrical aggression.</p>
+
+    <div class="chart">
+      <iframe
+        title="What Actually Makes a College Fight Song Hype?"
+        aria-label="Scatter plot"
+        id="datawrapper-chart-8OzhT"
+        src="https://datawrapper.dwcdn.net/8OzhT/2/"
+        scrolling="no"
+        frameborder="0"
+        height="720"
+        data-external="1">
+      </iframe>
+    </div>
+
+    <p class="callout">
+      Fight songs are designed to energize crowds, but not all of them do it the same way. This chart maps songs by
+      how fast they are and how aggressively their lyrics repeat traditional hype tropes. Together, these dimensions
+      reveal four distinct styles of hype.
+    </p>
+
+    <hr>
+
+    <h2>How hype styles extend beyond the song</h2>
+    <p>
+      Fight songs shape how hype is expressed, but they exist within broader home-field environments.
+      To explore whether hype styles tend to appear in more intimidating settings, we combine recent home win rates (2021–2025)
+      and stadium capacity into a standardized measure of stadium difficulty.
+      The distribution below shows how Big Ten schools (<strong>n = 16 programs</strong>) in each hype style are spread across
+      low-, medium-, and high-difficulty home environments.
+    </p>
+
+    <div class="chart">
+      <iframe
+        title="Stadium Difficulty by Fight Song Hype Style"
+        aria-label="100% stacked bars"
+        id="datawrapper-chart-J8TFR"
+        src="https://datawrapper.dwcdn.net/J8TFR/1/"
+        scrolling="no"
+        frameborder="0"
+        height="520"
+        data-external="1">
+      </iframe>
+    </div>
+
+    <p class="callout">
+      <strong>Takeaway:</strong> Aggressive and hybrid hype styles appear more often in difficult home environments, while speed-driven
+      styles skew toward easier ones.
+    </p>
+
+    <details>
+      <summary>How the analysis works</summary>
+      <ul>
+        <li>Fight song data: FiveThirtyEight (tempo + lyrical tropes).</li>
+        <li>Hype styles defined by dataset medians (BPM and trope count).</li>
+        <li>Stadium difficulty combines standardized home win rate (2021–2025) and stadium capacity.</li>
+        <li>Secondary analysis focuses on Big Ten programs.</li>
+      </ul>
+    </details>
+
+    <div class="footer">
+      <p><strong>Chart:</strong> Drew Glassman and Edward Kim</p>
+      <p><strong>Built with:</strong> Datawrapper + GitHub Pages</p>
+    </div>
+  </main>
+
+  <script>
+    // Datawrapper responsive iframe resizing
+    !function(){"use strict";
+      window.addEventListener("message",function(a){
+        if(void 0!==a.data["datawrapper-height"]){
+          var e=document.querySelectorAll("iframe");
+          for(var t in a.data["datawrapper-height"])
+            for(var r=0;r<e.length;r++)
+              if(e[r].contentWindow===a.source){
+                e[r].style.height=a.data["datawrapper-height"][t]+"px";
+              }
+        }
+      });
+    }();
+  </script>
+</body>
+</html>
