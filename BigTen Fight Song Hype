@@ -1,0 +1,162 @@
+index.html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>What Actually Makes a College Fight Song "Hype"?</title>
+  <style>
+    :root {
+      --text: #111;
+      --muted: #666;
+      --rule: #e6e6e6;
+      --bg: #fff;
+      --maxw: 980px;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      line-height: 1.5;
+    }
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 36px 18px 64px;
+    }
+    h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.1;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+    .deck {
+      font-size: clamp(16px, 2.2vw, 20px);
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 28px 0;
+    }
+    h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    p {
+      margin: 10px 0;
+    }
+    .chart {
+      margin: 18px 0;
+    }
+    iframe {
+      width: 1px;
+      min-width: 100% !important;
+      border: none;
+    }
+    .callout {
+      border-left: 4px solid var(--rule);
+      padding: 10px 14px;
+      margin: 14px 0;
+      background: #fafafa;
+    }
+    details {
+      margin-top: 14px;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .footer {
+      margin-top: 34px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <h1>What Actually Makes a College Fight Song “Hype”?</h1>
+    <p class="deck">College fight songs mapped by musical speed and lyrical aggression.</p>
+
+    <div class="chart">
+      <iframe
+        title="What Actually Makes a College Fight Song Hype?"
+        src="https://datawrapper.dwcdn.net/8OzhT/2/"
+        scrolling="no"
+        frameborder="0"
+        height="720"
+        data-external="1">
+      </iframe>
+    </div>
+
+    <p class="callout">
+      Fight songs are designed to energize crowds, but not all of them do it the same way.
+      This chart maps songs by how fast they are and how aggressively their lyrics repeat traditional hype tropes.
+      Together, these dimensions reveal four distinct styles of hype.
+    </p>
+
+    <hr>
+
+    <h2>How hype styles extend beyond the song</h2>
+    <p>
+      Fight songs shape how hype is expressed, but they exist within broader home-field environments.
+      To explore whether hype styles tend to appear in more intimidating settings, we combine recent home win rates (2021–2025)
+      and stadium capacity into a standardized measure of stadium difficulty.
+      The distribution below shows how Big Ten schools (<strong>n = 16 programs</strong>) in each hype style
+      are spread across low-, medium-, and high-difficulty home environments.
+    </p>
+
+    <div class="chart">
+      <iframe
+        title="Stadium Difficulty by Fight Song Hype Style"
+        src="https://datawrapper.dwcdn.net/J8TFR/3/"
+        scrolling="no"
+        frameborder="0"
+        height="520"
+        data-external="1">
+      </iframe>
+    </div>
+
+    <p class="callout">
+      <strong>Takeaway:</strong> Aggressive and hybrid hype styles appear more often in difficult home environments,
+      while speed-driven styles skew toward easier ones.
+    </p>
+
+    <details>
+      <summary>How the analysis works</summary>
+      <ul>
+        <li>Fight song data: FiveThirtyEight (tempo and lyrical tropes)</li>
+        <li>Hype styles defined by dataset medians (BPM and trope count)</li>
+        <li>Stadium difficulty combines standardized home win rate (2021–2025) and stadium capacity</li>
+        <li>Secondary analysis focuses on Big Ten programs</li>
+      </ul>
+    </details>
+
+    <div class="footer">
+      <p><strong>Chart:</strong> Drew Glassman and Edward Kim</p>
+      <p><strong>Built with:</strong> Datawrapper + GitHub Pages</p>
+    </div>
+  </main>
+
+  <script>
+    !function(){
+      window.addEventListener("message", function(e){
+        if (e.data["datawrapper-height"]) {
+          const iframes = document.querySelectorAll("iframe");
+          for (const key in e.data["datawrapper-height"]) {
+            for (const iframe of iframes) {
+              if (iframe.contentWindow === e.source) {
+                iframe.style.height = e.data["datawrapper-height"][key] + "px";
+              }
+            }
+          }
+        }
+      });
+    }();
+  </script>
+</body>
+</html>
