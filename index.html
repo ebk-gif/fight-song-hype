@@ -11,67 +11,109 @@
       --rule: #e6e6e6;
       --bg: #fff;
       --maxw: 980px;
+
+      /* Premium neutrals */
+      --panel: #f7f7f7;
+      --panelBorder: #d9d9d9;
     }
+
     body {
       margin: 0;
       background: var(--bg);
       color: var(--text);
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      line-height: 1.5;
+      line-height: 1.55;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
+
     .wrap {
       max-width: var(--maxw);
       margin: 0 auto;
-      padding: 36px 18px 64px;
+      padding: 48px 18px 80px;
     }
+
+    /* Keep long paragraphs readable */
+    .prose {
+      max-width: 76ch;
+    }
+
     h1 {
-      font-size: clamp(28px, 4vw, 44px);
-      line-height: 1.1;
-      margin-bottom: 10px;
-      letter-spacing: -0.02em;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.06;
+      margin: 0 0 12px;
+      letter-spacing: -0.025em;
     }
+
     .deck {
       font-size: clamp(16px, 2.2vw, 20px);
       color: var(--muted);
-      margin-bottom: 22px;
+      margin: 0 0 30px;
     }
+
+    /* Section framing */
+    .section {
+      margin-top: 56px;
+    }
+
     hr {
       border: none;
       border-top: 1px solid var(--rule);
-      margin: 28px 0;
+      margin: 56px 0 44px;
     }
+
     h2 {
-      font-size: 22px;
-      margin-bottom: 10px;
+      font-size: 24px;
+      margin: 0 0 14px;
+      letter-spacing: -0.01em;
     }
+
     p {
-      margin: 10px 0;
+      margin: 12px 0;
     }
+
     .chart {
-      margin: 18px 0;
+      margin: 28px 0 36px;
     }
+
     iframe {
       width: 1px;
       min-width: 100% !important;
       border: none;
     }
+
+    /* Premium callout */
     .callout {
-      border-left: 4px solid var(--rule);
-      padding: 10px 14px;
-      margin: 14px 0;
-      background: #fafafa;
+      border: 1px solid var(--panelBorder);
+      border-left: 5px solid var(--panelBorder);
+      background: var(--panel);
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin: 10px 0 8px;
     }
+
     details {
-      margin-top: 14px;
+      margin-top: 22px;
     }
+
     summary {
       cursor: pointer;
-      font-weight: 600;
+      font-weight: 650;
     }
+
+    ul {
+      margin: 10px 0 0 18px;
+    }
+
     .footer {
-      margin-top: 34px;
+      margin-top: 48px;
       color: var(--muted);
       font-size: 13px;
+    }
+
+    .footer p {
+      margin: 6px 0;
     }
   </style>
 </head>
@@ -79,7 +121,7 @@
 <body>
   <main class="wrap">
     <h1>What Actually Makes a College Fight Song “Hype”?</h1>
-    <p class="deck">A visual typology of college fight songs based on tempo and lyrical intensity.</p>
+    <p class="deck prose">A visual typology of college fight songs based on tempo and lyrical intensity.</p>
 
     <div class="chart">
       <iframe
@@ -92,48 +134,52 @@
       </iframe>
     </div>
 
-    <p class="callout">
+    <p class="callout prose">
       Fight songs energize crowds in different ways. This visualization maps college fight songs by tempo and lyrical intensity to reveal four distinct styles of hype.
     </p>
 
     <hr>
 
-    <h2>How hype styles extend beyond the song</h2>
-    <p>
-      Fight songs shape how hype is expressed, but they exist within broader home-field environments.
-      To explore whether hype styles tend to appear in more intimidating settings, we combine recent home win rates (2021–2025)
-      and stadium capacity into a standardized measure of stadium difficulty.
-      The distribution below shows how Big Ten schools (<strong>n = 16 programs</strong>) in each hype style
-      are spread across low-, medium-, and high-difficulty home environments.
-    </p>
+    <section class="section">
+      <h2>Hype Beyond the Song</h2>
+      <div class="prose">
+        <p>
+          Fight songs shape how hype is expressed, but they exist within broader home-field environments.
+          To explore whether hype styles tend to appear in more intimidating settings, we combine recent home win rates (2021–2025)
+          and stadium capacity into a standardized measure of stadium difficulty.
+          The distribution below shows how Big Ten schools (<strong>n = 16 programs</strong>) in each hype style
+          are spread across low-, medium-, and high-difficulty home environments.
+        </p>
+      </div>
 
-    <div class="chart">
-      <iframe
-        title="Stadium Difficulty by Fight Song Hype Style"
-        src="https://datawrapper.dwcdn.net/J8TFR/5/"
-        scrolling="no"
-        frameborder="0"
-        height="520"
-        data-external="1">
-      </iframe>
-    </div>
+      <div class="chart">
+        <iframe
+          title="Stadium Difficulty by Fight Song Hype Style"
+          src="https://datawrapper.dwcdn.net/J8TFR/5/"
+          scrolling="no"
+          frameborder="0"
+          height="520"
+          data-external="1">
+        </iframe>
+      </div>
 
-    <p class="callout">
-      <strong>Takeaway:</strong> Aggressive and hybrid hype styles appear more often in difficult home environments,
-      while speed-driven styles skew toward easier ones.
-    </p>
+      <p class="callout prose">
+        <strong>Takeaway:</strong> Aggressive and hybrid hype styles appear more often in difficult home environments,
+        while speed-driven styles skew toward easier ones.
+      </p>
 
-    <details>
-      <summary>How the analysis works</summary>
-      <ul>
-        <li>Fight song data: FiveThirtyEight (tempo and lyrical tropes)</li>
-        <li>Hype styles defined by dataset medians (BPM and trope count)</li>
-        <li>Stadium difficulty score: standardized home win rate (2021–2025) plus standardized stadium capacity; schools are grouped into low, medium, and high tiers using terciles of this score.</li>
-        <li>Secondary analysis focuses on Big Ten programs</li>
-      </ul>
-    </details>
+      <details class="prose">
+        <summary>How the analysis works</summary>
+        <ul>
+          <li>Fight song data: FiveThirtyEight (tempo and lyrical tropes)</li>
+          <li>Hype styles defined by dataset medians (BPM and trope count)</li>
+          <li>Stadium difficulty score: standardized home win rate (2021–2025) plus standardized stadium capacity; schools are grouped into low, medium, and high tiers using terciles of this score.</li>
+          <li>Secondary analysis focuses on Big Ten programs</li>
+        </ul>
+      </details>
+    </section>
 
-    <div class="footer">
+    <div class="footer prose">
       <p><strong>Chart:</strong> Drew Glassman and Edward Kim</p>
       <p><strong>Built with:</strong> Datawrapper + GitHub Pages</p>
     </div>
