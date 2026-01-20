@@ -11,6 +11,7 @@
       --rule: #e6e6e6;
       --bg: #fff;
       --maxw: 980px;
+      --panel: #fafafa;
     }
     body {
       margin: 0;
@@ -33,7 +34,46 @@
     .deck {
       font-size: clamp(16px, 2.2vw, 20px);
       color: var(--muted);
+      margin: 0 0 22px;
+    }
+
+    .meta {
+      display: grid;
+      gap: 10px;
       margin: 0 0 28px;
+    }
+
+    .method {
+      background: var(--panel);
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      padding: 14px 16px;
+      color: var(--text);
+    }
+    .method h2 {
+      font-size: 16px;
+      margin: 0 0 8px;
+      letter-spacing: -0.01em;
+    }
+    .method p {
+      margin: 8px 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .formula {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--rule);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 13px;
+      color: #333;
+      white-space: nowrap;
+      overflow-x: auto;
+    }
+    .note {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted);
     }
 
     hr {
@@ -53,7 +93,7 @@
     }
 
     .chart {
-      margin: 28px 0 36px;
+      margin: 28px 0 18px;
     }
 
     iframe {
@@ -65,8 +105,26 @@
     .callout {
       border-left: 4px solid var(--rule);
       padding: 12px 16px;
-      margin: 10px 0 8px;
-      background: #fafafa;
+      margin: 12px 0 8px;
+      background: var(--panel);
+      border-radius: 8px;
+    }
+    .callout strong {
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+    .callout ul {
+      margin: 8px 0 0 18px;
+      color: var(--text);
+    }
+    .callout li {
+      margin: 6px 0;
+    }
+
+    .caption {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 13px;
     }
 
     details {
@@ -96,8 +154,34 @@
 <body>
   <main class="wrap">
     <h1>What Actually Makes a College Fight Song “Hype”?</h1>
-    <p class="deck">Every college fight song is meant to hype a crowd, but not every crowd gets hyped the same way.
-This project examines how tempo and lyrical intensity shape four distinct styles of hype.</p>
+
+    <div class="meta">
+      <p class="deck">
+        Every college fight song is meant to hype a crowd, but not every crowd gets hyped the same way.
+        This project examines how tempo and lyrical intensity shape four distinct styles of hype.
+      </p>
+
+      <!-- Methodology block inserted right after opening sentence -->
+      <section class="method" aria-label="Methodology">
+        <h2>Methodology</h2>
+        <p>
+          Fight songs generate “hype” through both <strong>musical energy</strong> and <strong>linguistic content</strong>.
+          To capture these dimensions, we compare <strong>tempo (BPM)</strong> with a composite measure of
+          <strong>lyrical aggression</strong> derived from each song’s lyrics.
+        </p>
+        <p>
+          Lyrical aggression combines the number of aggressive clichés in each song (<em>trope_count</em>) with the
+          density of the word <em>“fight”</em> per 100 words (<em>fight_density</em>), normalized by lyric length so longer
+          songs do not mechanically appear more aggressive.
+        </p>
+        <div class="formula">
+          lyrical_aggression = trope_count + α · fight_density &nbsp;&nbsp; (α = 1)
+        </div>
+        <div class="note">
+          Median lines in the chart below divide songs into four stylistic categories for clear comparison.
+        </div>
+      </section>
+    </div>
 
     <div class="chart">
       <iframe
@@ -108,19 +192,31 @@ This project examines how tempo and lyrical intensity shape four distinct styles
         height="720"
         data-external="1">
       </iframe>
+      <!-- Optional clarification to avoid “Big Ten” legend mismatch confusion -->
+      <p class="caption">
+        Big Ten programs are highlighted for reference; the full dataset provides context for comparison.
+      </p>
     </div>
 
-    <p class="callout">
-      <strong>Takeaway:</strong> College fight song hype is not one-dimensional. Some songs prioritize speed over aggression, others emphasize repetition and intensity, and only a subset combine both, revealing distinct stylistic tradeoffs in how schools generate crowd energy.
-    </p>
+    <!-- Updated Takeaway bridge: now Key Insights -->
+    <div class="callout">
+      <strong>Key takeaways</strong>
+      <ul>
+        <li><strong>Hype is multidimensional.</strong> Some songs rely on both fast tempo and aggressive language, while others generate energy through speed or language alone.</li>
+        <li><strong>Aggressive language isn’t required for high tempo.</strong> Many songs are fast without heavy combat imagery, suggesting hype can be driven musically rather than lyrically.</li>
+        <li><strong>Lyrical aggression and tempo can diverge.</strong> Some songs are linguistically intense but musically slower, reflecting distinct stylistic traditions across programs.</li>
+      </ul>
+    </div>
 
     <hr>
 
     <h2>Hype Beyond the Song</h2>
     <p>
       Fight songs shape how hype is expressed, but they also operate within broader social contexts.
-      To examine how the four hype styles identified above appear across different competitive and psychological stadium contexts, we combined recent home win rates (2021–2025) and stadium capacity into a standardized measure of stadium difficulty.
-      The distribution below shows how Big Ten schools (<strong>n = 18 programs</strong>) within each hype style are spread across low-, medium-, and high-difficulty home environments.
+      To examine how the four hype styles identified above appear across different competitive and psychological stadium contexts,
+      we combined recent home win rates (2021–2025) and stadium capacity into a standardized measure of stadium difficulty.
+      The distribution below shows how Big Ten schools (<strong>n = 18 programs</strong>) within each hype style are spread across
+      low-, medium-, and high-difficulty home environments.
     </p>
 
     <div class="chart">
@@ -143,21 +239,17 @@ This project examines how tempo and lyrical intensity shape four distinct styles
       <summary>How the analysis works</summary>
       <ul>
         <li>
-          Fight song data: FiveThirtyEight (tempo and lyrical tropes)</li>
+          Fight song data:
           <a href="https://github.com/fivethirtyeight/data/tree/master/fight-songs"
-            target="_blank" rel="noopener noreferrer">
-          FiveThirtyEight fight songs dataset
-        </a>
-        (tempo and lyrical tropes)
+             target="_blank" rel="noopener noreferrer">FiveThirtyEight fight songs dataset</a>
+          (tempo and lyrical tropes)
         </li>
         <li>
           Big Ten subset and derived measures:
           <a href="https://github.com/ebk-gif/fight-song-hype/blob/main/BigTen_2021-25_Standings.csv"
-            target="_blank" rel="noopener noreferrer">
-          processed project dataset
-        </a>
+             target="_blank" rel="noopener noreferrer">processed project dataset</a>
         </li>
-        <li>Hype styles defined by dataset medians (BPM and trope count)</li>
+        <li>Hype styles defined by dataset medians (BPM and lyrical aggression)</li>
         <li>
           Stadium difficulty score: standardized home win rate (2021–2025) plus standardized stadium capacity; schools are grouped into low, medium, and high tiers using terciles of this score.
         </li>
@@ -179,13 +271,4 @@ This project examines how tempo and lyrical intensity shape four distinct styles
           for (const key in e.data["datawrapper-height"]) {
             for (const iframe of iframes) {
               if (iframe.contentWindow === e.source) {
-                iframe.style.height = e.data["datawrapper-height"][key] + "px";
-              }
-            }
-          }
-        }
-      });
-    }();
-  </script>
-</body>
-</html>
+                iframe.style.
