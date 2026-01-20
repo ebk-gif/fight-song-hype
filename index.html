@@ -93,7 +93,7 @@
     }
 
     .chart {
-      margin: 24px 0 6px;
+      margin: 28px 0 18px;
     }
 
     iframe {
@@ -105,7 +105,7 @@
     .callout {
       border-left: 4px solid var(--rule);
       padding: 12px 16px;
-      margin: 6px 0 8px;
+      margin: 12px 0 8px;
       background: var(--panel);
       border-radius: 8px;
     }
@@ -122,7 +122,7 @@
     }
 
     .caption {
-      margin: -4px 0 0;
+      margin: 6px 0 0;
       color: var(--muted);
       font-size: 13px;
     }
@@ -186,7 +186,7 @@
     <div class="chart">
       <iframe
         title="What Actually Makes a College Fight Song Hype?"
-        src="https://datawrapper.dwcdn.net/c0XyL/1/"
+        src="https://datawrapper.dwcdn.net/8OzhT/8/"
         scrolling="no"
         frameborder="0"
         height="720"
@@ -222,7 +222,7 @@
     <div class="chart">
       <iframe
         title="Stadium Difficulty by Fight Song Hype Style"
-        src="https://datawrapper.dwcdn.net/J8TFR/7/"
+        src="https://datawrapper.dwcdn.net/J8TFR/6/"
         scrolling="no"
         frameborder="0"
         height="520"
@@ -271,4 +271,13 @@
           for (const key in e.data["datawrapper-height"]) {
             for (const iframe of iframes) {
               if (iframe.contentWindow === e.source) {
-                iframe.style.
+                iframe.style.height = e.data["datawrapper-height"][key] + "px";
+              }
+            }
+          }
+        }
+      });
+    }();
+  </script>
+</body>
+</html>
